@@ -36,6 +36,19 @@ RegWrite = 1, para escrever nos registradores
 
 BLTZ
 
+Para a implementação da instrução BLTZ (Branch on Less Than Zero), foi necessária a adição de um novo bit (sinal)  na unidade de controle, denominado REGIMM, que é ligado apenas quando essa instrução está em execução. 
+
+Além disso, foi feita uma modificação na entrada do MUX responsável pelo cálculo do endereço em instruções de desvio. Antes, a entrada do MUX era definida pela saída de apenas um AND, entre o bit de controle de Branch e o bit proveniente da ULA. Agora, foi adicionado um novo AND, exclusivamente para os casos da instrução BLTZ. Esse AND terá como entradas dois túneis, um indicando que a instrução é BLTZ (que sempre estará ligado quando ela estiver executando) , e outro indicando se o conteúdo do registrador rs é negativo. Se for negativo, então a saída do AND sinaliza o pulo. Unindo esses AND’S, foi implementado um OR, que irá se conectar ao MUX, o que indica que o pulo pode ser feito tanto se a instrução for BLTZ quanto se for um outro tipo de branch (como o BEQ)
+
+
+ O sinal tem como funções:
+
+Selecionar o bit mais significativo do registrador, que irá dizer se o valor contido nele é positivo ou negativo. Isso definirá se o branch deve ou não ocorrer
+“Setar”  o túnel que indica se o regist. contém valor negativo, se o valor for negativo
+Sinalizar no MUX que calcula o próximo endereço que a instrução é BLTZ
+Sinalizar no MUX que calcula o próximo endereço se o valor é positivo ou negativo
+
+
 ######################################################################
 
 SRA
