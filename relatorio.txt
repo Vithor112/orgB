@@ -43,7 +43,7 @@ Além disso, foi feita uma modificação na entrada do MUX responsável pelo cá
 
  O sinal tem como funções:
 
-Selecionar o bit mais significativo do registrador, que irá dizer se o valor contido nele é positivo ou negativo. Isso definirá se o branch deve ou não ocorrer
+Selecionar o bit mais significativo do registrador, que irá dizer se o valor contido nele é positivo ou negativo. Isso definirá se o branch do BLTZ deve ou não ocorrer
 “Setar”  o túnel que indica se o regist. contém valor negativo, se o valor for negativo
 Sinalizar no MUX que calcula o próximo endereço que a instrução é BLTZ
 Sinalizar no MUX que calcula o próximo endereço se o valor é positivo ou negativo
