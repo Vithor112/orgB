@@ -58,6 +58,19 @@ SRA
 
 JR
 
+Modificações para adicionar a instrução JR ao monociclo:
+- Adiciona-se uma nova flag de saída da ALU, chamada ALU Branch;
+- Modifica-se a ALU para adicionar um novo modo (100), nesse modo a ALU ativa a
+ALU Branch e passa rs para a saída;
+- O que impede de utilizar o modo de ADD existente já na ALU é o fato de ser
+necessário sinalizar que o PC deve receber a saída da ALU, se não poderíamos
+reutiliza-lo pois o outro registrador obrigatoriamente será 0;
+- Também não é um problema o fato de escrevermos RS no banco de registradores,
+pois o registrador destino é o registrador 0, que é read only;
+- Modifica-se o ALU Control para retornar 100 quando OP = 10 e FUNC = 001000
+- Modifica-se o controle para que no estado de execução de instruções do tipo R o PcSource seja igual a 00 e adiciona-se uma nova flag chamada ExecR que é ativada somente no estado de execução de instruções do tipo R;
+- Adiciona-se mais uma entrada no OR do enable do PC, que consiste de um AND entre a flag AluBranch e a flag execR 
+
 ######################################################################
 
 ADDI
