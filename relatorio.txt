@@ -74,7 +74,7 @@ pois o registrador destino é o registrador 0, que é read only;
 
 ADDI
 
-Novamente precisamos alterar somente os sinais de controle, nesse caso ilustrados no diagrama da FSM. A execução ocorre progredindo do estado 0, para o 1, 2, 7 e 0 novamente.  
+Novamente precisamos alterar somente os sinais de controle, nesse caso ilustrados no diagrama da FSM. A execução ocorre progredindo do estado 0, para o 1, 2, 7 e 0 novamente.    
 
 
 ######################################################################
@@ -92,6 +92,17 @@ JR
 ######################################################################
 
 ADDI
+
+A configuração de sinais utilizados são os mesmos do MIPS Monociclo: 
+RegDst = 0, para salvar no RT (diferente de ADD)
+Jump = 0
+Branch = 0
+MemRead = 0
+MemToReg= 0, para passar o dado da ULA para o banco de registradores
+ALUop = 00, para não selecionar funct e selecionar ADD no control (diferente de ADD)
+MemWrite = 0
+ALUSrc = 1, para usar o imediato na soma (diferente de ADD)
+RegWrite = 1, para escrever nos registradores
 
 ######################################################################
 
