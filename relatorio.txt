@@ -81,7 +81,9 @@ Novamente precisamos alterar somente os sinais de controle, nesse caso ilustrado
 
 BLTZ
 
-Para implementar essa instrução, foi criado um bit de sinal "BranchNeg". Será feito um AND entre esse bit, que será ligado quando a instrução estiver em execução, e o bit mais significativo do registrador RS, que conterá o sinal do valor resultante da subtração que decidirá o branch. Se for negativo, então o branch será realizado. Os 2 primeiros ciclos da instrução coincidem com as demais, sendo que a partir do terceiro ciclo o bit novo é acionado e a lógica descrita acima ocorrerá.
+Para implementar essa instrução, foi criado um bit de sinal "BranchNeg". Será feito um AND entre esse bit, que será ligado quando a instrução estiver em execução, e o
+bit mais significativo do registrador RS, que conterá o sinal do valor resultante da subtração que decidirá o branch. Se for negativo, então o branch será realizado.
+Os 2 primeiros ciclos da instrução coincidem com as demais, sendo que a partir do terceiro ciclo o bit novo é acionado e a lógica descrita acima ocorrerá.
 
 
 ######################################################################
