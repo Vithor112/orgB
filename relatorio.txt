@@ -14,6 +14,7 @@ reutiliza-lo pois o outro registrador obrigatoriamente será 0;
 - Também não é um problema o fato de escrevermos RS no banco de registradores,
 pois o registrador destino é o registrador 0, que é read only;
 - Modifica-se o ALU Control para retornar 100 quando OP = 10 e FUNC = 001000
+- ALUOP deve ser setado para 10 apenas na fase de execução da instrução R;
 
 ######################################################################
 
@@ -93,6 +94,16 @@ SRA
 --------------------------PIPELINE---------------------------------------------
 
 JR
+
+
+Modificações para adicionar a instrução JR ao monociclo:
+- Adiciona-se uma nova flag de saída da ALU, chamada ALU Branch;
+- Adiciona-se um MUX na entrada do PC que seleciona entre o fio pré-existente
+(sel=0), e a saída da ALU (sel=1), sendo o selecionador a flag ALU Branch;
+- Modifica-se a ALU para adicionar um novo modo (100), nesse modo a ALU ativa a
+ALU Branch e passa rs para a saída;
+- Modifica-se o ALU Control para retornar 100 quando OP = 10 e FUNC = 001000
+- ALUOP deve ser setado para 10 apenas na fase de execução da instrução R;
 
 ######################################################################
 
