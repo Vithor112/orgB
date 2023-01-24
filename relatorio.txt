@@ -53,6 +53,8 @@ Sinalizar no MUX que calcula o próximo endereço se o valor é positivo ou nega
 
 SRA
 
+Para a implementação do SRA foram adicionados um comparador e um shifter para a direita, além de um mux para controle. Para o controle deste mux não foi necessário qualquer mudança no bloco de controle, como era de se esperar, já que o upcode da instrução SRA é o mesmo da instrução add implementada originalmente. O mux é controlado pelo resultado da comparação do comparador, que compara o funct das instruções lidas com o funct da intrução SRA. Quando este vale 1 o mux propaga para o banco de registradores o valor shiftado do segundo registrador. A quantidade de bits que devem ser shiftadas é extraida do código de instrução com o auxílio de um splitter.
+
 
 --------------------------MULTICICLO---------------------------------------------
 
@@ -91,6 +93,8 @@ Os 2 primeiros ciclos da instrução coincidem com as demais, sendo que a partir
 
 SRA
 
+As alterações seguem a mesma lógica da versão do monociclo. A instrução SRA, por possuir o mesmo opcode de instruções já implementadas, foi possível implementar a função sem mexer na parte de controle, exceto pelo uso do cmoparador e mux que foram explorados na explicação do monociclo.
+
 --------------------------PIPELINE---------------------------------------------
 
 JR
@@ -128,4 +132,5 @@ BLTZ
 
 SRA
 
+Seguindo o mesmo do monocicli e multiciclo, por possuir o mesmo opcode de instruções já implementadas, não foi necessário mexer na parte de controle. Os sinais de controle são, portanto, todos os mesmos de outras instruções com o mesmo opcode, como a ADD.
 
