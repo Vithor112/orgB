@@ -132,6 +132,9 @@ RegWrite = 1, para escrever nos registradores
 
 BLTZ
 
+Para adicionar essa instrução no pipeline, foi utilizada uma estratégia semelhante ao multiciclo, em que foi criado um novo bit para sinal de controle, chamado "BranchNeg", que será ligado durante a execução da BLTZ. Então, será feito um AND entre BranchNeg e o bit mais significativo de RS, e se este for negativo, haverá
+o branch para o novo endereço.
+
 ######################################################################
 
 SRA
