@@ -108,7 +108,7 @@ JR
 Modificações para adicionar a instrução JR ao monociclo:
 - Adiciona-se uma nova flag de saída da ALUControl, chamada ALU Branch;
 - Adiciona-se um MUX na entrada do PC que seleciona entre o fio pré-existente
-(sel=0), e a saída da ALU (sel=1), sendo o selecionador a flag ALU Branch;
+(sel=0), e a saída do registrador que guarda a saída da ALU (sel=1), sendo o selecionador a flag ALU Branch;
 - Modifica-se o ALU para adicionar um novo modo (100) nesse modo a ULA passa rs para a saída;
 - Modifica-se o ALU Control para retornar 100 quando OP = 10 e FUNC = 001000 e também para ativar a flag AluBranch 
 - ALUOP deve ser setado para 10 apenas na fase de execução da instrução R (  Já está garantido );
